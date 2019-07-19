@@ -1,0 +1,6 @@
+*.pyc
+*~
+__pycache__
+azenv
+/static
+.DS_Store
