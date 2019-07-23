@@ -25,7 +25,7 @@ SECRET_KEY = '%2w4u5w0*xjz3^4+csz^-ipt^k+90b(h@@@ob$k0+&zi9u8!kl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1',  'ohmiya-test.azurewebsites.net']
+ALLOWED_HOSTS = ['127.0.0.1',  'azure-test1'.azurewebsites.net']
 
 
 # Application definition
