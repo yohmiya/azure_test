@@ -112,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # ページネーション用設定
-PAGE_PER_ITEM = 20
+PAGE_PER_ITEM = 15
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
