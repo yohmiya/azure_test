@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'azsite.urls'
@@ -137,5 +138,8 @@ USE_TZ = True
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath("__file__"))
 STATIC_ROOT = path.join(PROJECT_ROOT, 'static').replace('\\','/')
- 
 STATIC_URL = '/static/'
+
+#STATIC_URL = '/static/'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
