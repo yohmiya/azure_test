@@ -1,16 +1,39 @@
 <html>
     <head>
         <title>施設レコメンド要約文</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <div>
-            <h1><a href="/">レコメンド要約文</a></h1>
+            <h1><a href="/">施設レコメンド要約文</a></h1>
         </div>
 
-        <div>
-            <p>施設名</p>
-            <p>ここに要約文</p>
-        </div>
+        <table>
+            {% for recommend in page_obj %}
+                <tr>
+                    <td>{{ recommend.poi }}</td><td>{{ recommend.recommend_text }}</td>
+                </tr>
+            {% endfor %}
+        </table>
 
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
     </body>
 </html>
