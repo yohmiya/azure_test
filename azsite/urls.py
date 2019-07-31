@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from tmc_test import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('tmc_test.urls')),
+    path('recommend/', include('tmc_test.urls')),
+    path('', views.search_form, name='search_form'),
 ]
+

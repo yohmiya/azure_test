@@ -66,6 +66,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries':{
+                'tmc_tags':'tmc_test.templatetags.tmc_tags'
+            }
         },
     },
 ]

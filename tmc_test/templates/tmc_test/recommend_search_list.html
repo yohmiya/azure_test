@@ -1,0 +1,47 @@
+{% extends 'tmc_test/base.html' %}
+{% load tmc_tags %}
+
+{% block content %}
+    <table  class="table table table-striped">
+        <tr>
+            <th scope="col" style="width:250px">施設名</th>
+            <th scope="col">要約文</th>
+        </tr>
+              
+        {% for recommend in page_obj %}
+            <tr>
+                <td>{{ recommend.poi }}</td><td>{{ recommend.recommend_text }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li><a class="page-link text-primary d-inline-block" href="?{% url_replace request 'page' page_obj.previous_page_number %}">前</a></li>
+                            {% else %}
+                    <li class="disabled"><div class="page-link text-secondary d-inline-block disabled" href="#">前</div></li>
+                {% endif %}
+    
+                {% for link_page in page_obj.paginator.page_range %}
+                    {% if link_page %}
+                        {% if link_page == page_obj.number %}
+                            <li class="disabled"><div class="page-link text-secondary d-inline-block disabled" href="#">{{ link_page }}</div></li>
+                        {% else %}
+                            <li><a class="page-link text-primary d-inline-block" href="?{% url_replace request 'page' link_page %}">{{ link_page }}</a></li>
+                            {% endif %}
+                    {% else %}
+                        <li class="disabled"><a class="page-link text-secondary d-inline-block text-muted" href="#">・・・</a></li>
+                    {% endif %}
+                {% endfor %}
+    
+                {% if page_obj.has_next %}
+                    <li><a class="page-link text-primary d-inline-block" href="?{% url_replace request 'page' page_obj.next_page_number %}">次</a></li>
+                {% else %}
+                    <li class="disabled"><div class="page-link text-secondary d-inline-block disabled" href="#">次</div></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endblock %}
