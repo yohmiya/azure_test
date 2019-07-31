@@ -24,7 +24,7 @@ def search_form(request):
     if form.is_valid():
         message = 'データ検証に成功しました'
     else:
-        message = '検索ワードを入力してください。'
+        message = '検索ワードを入力してください。（施設名 or 住所 一単語のみ）'
 
     d = {
         'form':form,
