@@ -6,11 +6,12 @@
         <tr>
             <th scope="col" style="width:250px">施設名</th>
             <th scope="col">要約文</th>
+            <th scope="col">住所</th>
         </tr>
               
         {% for recommend in page_obj %}
             <tr>
-                <td>{{ recommend.poi }}</td><td>{{ recommend.recommend_text }}</td>
+                <td>{{ recommend.poi }}</td><td>{{ recommend.recommend_text }}</td><td>{{ recommend.arr_an }}</td>
             </tr>
         {% endfor %}
     </table>
